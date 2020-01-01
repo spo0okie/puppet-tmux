@@ -1,7 +1,9 @@
 class tmux {
 	require repos::ius
-	package {'tmux':
-		ensure => absent,
+	exec {'tmux1_remove':
+		command => 'yum remove tmux -y',
+		onlyif  => 'rpm -qa |grep tmux && tmux -V |grep "tmux 1."',
+		path    => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
 	} ->
 	package {'tmux2':
 		ensure => installed,
