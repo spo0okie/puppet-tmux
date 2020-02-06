@@ -6,7 +6,7 @@ class tmux {
 				'8': {
 					package {'tmux':
 						ensure => installed,
-					} ->
+					}
 				}
 				default: {
 					require repos::ius
@@ -17,7 +17,7 @@ class tmux {
 					} ->
 					package {'tmux2':
 						ensure => installed,
-					} ->
+					}
 				}
 			}
 		}
